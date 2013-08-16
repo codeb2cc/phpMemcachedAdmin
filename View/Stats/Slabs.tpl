@@ -74,6 +74,10 @@ foreach($slabs as $id => $slab)
                     <?php echo $slab['total_pages']; ?>
                 </div>
                 <div class="line">
+                    <span class="left slabs">Used</span>
+                    <?php echo Library_Data_Analysis::byteResize($slab['mem_malloced']); ?>Bytes
+                </div>
+                <div class="line">
                     <span class="left slabs">Wasted</span>
                     <?php echo Library_Data_Analysis::byteResize($slab['mem_wasted']); ?>Bytes
                 </div>
