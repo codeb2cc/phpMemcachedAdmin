@@ -109,6 +109,10 @@ hr {
 	width: 226px;
 }
 
+.size-6 {
+  width: 110px;
+}
+
 .padding {
 	padding: 3px 7px 3px 7px;
 }

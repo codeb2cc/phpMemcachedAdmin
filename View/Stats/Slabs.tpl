@@ -23,11 +23,26 @@
         <br/>
     </div>
 
-    <div class="size-1" style="float:left;padding-left:9px;">
+    <div class="size-1" style="float:left;padding-left:9px;margin-top:9px;">
         <div class="container corner" style="padding:9px;">
                 For more informations about memcached slabs stats, see memcached protocol
                 <a href="http://github.com/memcached/memcached/blob/master/doc/protocol.txt#L470" target="_blank"><span class="green">here</span></a>
         </div>
+    </div>
+
+    <div class="size-1" style="float:left;padding-left:9px;margin-top:8px;">
+<?php
+foreach($sort_keys as $key => $label)
+{
+?>
+      <div class="size-6" style="display:inline-block;">
+          <div class="header corner padding" style="text-align:center;">
+              <a href="?server=<?php echo $_GET['server']; ?>&amp;show=slabs&amp;sort=<?php echo $key; ?>"><?php echo $label ?></a>
+          </div>
+      </div>
+<?php
+}
+?>
     </div>
 
     <table class="full-size" cellspacing="0" cellpadding="0">

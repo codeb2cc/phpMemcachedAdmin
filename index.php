@@ -97,6 +97,20 @@ switch($request)
         {
             # Analysis
             $slabs = Library_Data_Analysis::slabs($slabs);
+            $sort_keys = array(
+                'slab_index' => 'Index',
+                'chunk_size' => 'Chunk Size',
+                'total_chunks' => 'Total Chunks',
+                'total_pages' => 'Total Pages',
+                'mem_malloced' => 'Used',
+                'mem_wasted' => 'Wasted',
+            );
+            if(isset($_GET['sort']) && array_key_exists($_GET['sort'], $sort_keys) && $_GET['sort'] != 'slab_index')
+            {
+              uasort($slabs, function($a, $b) {
+                return ($a[$_GET['sort']] > $b[$_GET['sort']]) ? -1 : 1;
+              });
+            }
             include 'View/Stats/Slabs.tpl';
         }
         # Slabs are not well formed
